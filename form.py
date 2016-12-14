@@ -67,6 +67,12 @@ class Ui_MainWindow(object):
         self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
+        self.pushButton_2 = QtGui.QPushButton(self.otvet)
+        self.pushButton_2.setGeometry(QtCore.QRect(370, 590, 211, 27))
+        self.pushButton_2.setObjectName(_fromUtf8("pushButton_2"))
+        self.pushButton_3 = QtGui.QPushButton(self.otvet)
+        self.pushButton_3.setGeometry(QtCore.QRect(140, 590, 141, 27))
+        self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
         self.stackedWidget.addWidget(self.otvet)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
@@ -78,7 +84,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -86,4 +92,6 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Bowling", None))
         self.label_2.setText(_translate("MainWindow", "Укажите название файла. Файл должен лежать в одной директории с программой ", None))
         self.pushButton.setText(_translate("MainWindow", "Готово", None))
+        self.pushButton_2.setText(_translate("MainWindow", "Следующий раунд", None))
+        self.pushButton_3.setText(_translate("MainWindow", "Новый раунд", None))
 

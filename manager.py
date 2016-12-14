@@ -5,6 +5,8 @@ class Manager():
 
     def __init__(self):
         self.players=[]
+        self.bottom=0
+        self.top=0
         pass
 
     def loadPlayers(self,pathcsv):
@@ -19,11 +21,13 @@ class Manager():
                 self.players.append(newPlayer)
 
             index+=1
+        self.bottom=0
+        self.top=len(self.players)
         pass
 
-    def sortPlayers(self):
+    def sortPlayers(self,array):
         #if(len(self.players)>0):
-        a=self.players
+        a=array
         for i in reversed(range(len(a))):
             for j in range(1, i + 1):
                 if int(a[j - 1].score) < int(a[j].score):
@@ -35,13 +39,35 @@ class Manager():
 
     def showPlayers(self):
         for p in self.players:
-            print str(self.players.index(p))+" "+p.name+" "+p.score+" "+str(p.status)
+            print str(self.players.index(p))+" "+p.name+" "+str(p.score)+" "+str(p.status)
         pass
 
     pass
 
 
+    def isMootable(self):
+
+        for p in self.players:
+            if(p.status==2):
+                return 1
+        return 0
+        pass
+
+
+    def setRanksForStykovye(self):
+
+
+
+        pass
+
+    def delete(self):
+        for p in self.players:
+            if p.status==3: self.players.remove(p)
+        pass
+
     def setRanks(self):
+        self.delete()
+        #if(self.isMootable()==0):
 
         n=len(self.players)
         middle = n / 2-1
@@ -49,10 +75,12 @@ class Manager():
             index=self.players.index(p)
             if index<=n/2:self.players[index].status=1
             else:self.players[index].status=3
-
-        if self.players[middle].score==self.players[middle+1].score:
+        score1=self.players[middle].score
+        score2=self.players[middle+1].score
+        if score1==score1:
             for p in self.players:
-                if(p.score==self.players[middle].score): self.players[self.players.index(p)].status=2
+                if(p.score==score1):
+                    self.players[self.players.index(p)].status=2
 
 
 
