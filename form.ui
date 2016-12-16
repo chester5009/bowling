@@ -120,7 +120,7 @@
        </rect>
       </property>
       <property name="text">
-       <string>Следующий раунд</string>
+       <string>Внести изменения</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_3">

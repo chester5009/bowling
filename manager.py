@@ -82,13 +82,14 @@ class Manager():
 
         n=len(self.players)
         middle = n / 2-1
+        print "M IDDLE "+str(middle)
         for p in self.players:
             index=self.players.index(p)
-            if index<=n/2:self.players[index].status=1
+            if index<n/2:self.players[index].status=1
             else:self.players[index].status=3
         score1=self.players[middle].score
         score2=self.players[middle+1].score
-        if score1==score1:
+        if score1==score2:
             for p in self.players:
                 if(p.score==score1):
                     self.players[self.players.index(p)].status=2

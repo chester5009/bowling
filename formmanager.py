@@ -28,8 +28,9 @@ class Formmanager():
         self.manager.setAllZeroStatus()
         self.manager.sortPlayers(self.manager.players)
         self.manager.setRanks()
-        self.manager.showPlayers()
+        #sself.manager.showPlayers()
 
+        print "Kolucvhestvo"
         self.manager.showNumberOfStatus(1)
         self.manager.showNumberOfStatus(2)
         self.manager.showNumberOfStatus(3)
@@ -37,6 +38,7 @@ class Formmanager():
         self.manager.delete()
         self.fillTable()
 
+        print "Kolucvhestvo"
         self.manager.showNumberOfStatus(1)
         self.manager.showNumberOfStatus(2)
         self.manager.showNumberOfStatus(3)
@@ -56,6 +58,11 @@ class Formmanager():
         row=vec.row()
         self.ui.tableWidget.removeRow(row)
         self.manager.players.remove(self.manager.players[row])
+        print "players "+str(len(self.manager.players))
+        print "Kolucvhestvo"
+        self.manager.showNumberOfStatus(1)
+        self.manager.showNumberOfStatus(2)
+        self.manager.showNumberOfStatus(3)
         pass
 
     def createTable(self,cols,rows):

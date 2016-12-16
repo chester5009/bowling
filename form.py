@@ -92,6 +92,6 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Bowling", None))
         self.label_2.setText(_translate("MainWindow", "Укажите название файла. Файл должен лежать в одной директории с программой ", None))
         self.pushButton.setText(_translate("MainWindow", "Готово", None))
-        self.pushButton_2.setText(_translate("MainWindow", "Следующий раунд", None))
+        self.pushButton_2.setText(_translate("MainWindow", "Внести изменения", None))
         self.pushButton_3.setText(_translate("MainWindow", "Новый раунд", None))
 
