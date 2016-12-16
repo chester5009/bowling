@@ -54,15 +54,26 @@ class Manager():
         pass
 
 
-    def setRanksForStykovye(self):
 
 
+    def setAllZeroStatus(self):
+        for p in self.players:
+            p.status=0
+        pass
 
+    def showNumberOfStatus(self,s):
+        number=0
+        for p in self.players:
+            if p.status==s:
+                number+=1
+        print number
         pass
 
     def delete(self):
-        for p in self.players:
-            if p.status==3: self.players.remove(p)
+        '''for p in self.players:
+            if p.status==3: self.players.remove(p)'''
+        for i in reversed(range(len(self.players))):
+            if(self.players[i].status==3):self.players.remove(self.players[i])
         pass
 
     def setRanks(self):

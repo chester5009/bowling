@@ -25,12 +25,24 @@ class Formmanager():
 
     def calculate(self):
 
-
+        self.manager.setAllZeroStatus()
         self.manager.sortPlayers(self.manager.players)
         self.manager.setRanks()
         self.manager.showPlayers()
+
+        self.manager.showNumberOfStatus(1)
+        self.manager.showNumberOfStatus(2)
+        self.manager.showNumberOfStatus(3)
+
+        self.manager.delete()
         self.fillTable()
 
+        self.manager.showNumberOfStatus(1)
+        self.manager.showNumberOfStatus(2)
+        self.manager.showNumberOfStatus(3)
+
+        self.changeTableSize()
+        print u"Игроков "+str(len(self.manager.players))
 
     def goToOtvety(self):
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -39,6 +51,12 @@ class Formmanager():
         self.manager.setRanks()'''
         self.createTable(3,len(self.manager.players))
         #self.fillTable()
+
+    def removeFromTableAndList(self,vec):
+        row=vec.row()
+        self.ui.tableWidget.removeRow(row)
+        self.manager.players.remove(self.manager.players[row])
+        pass
 
     def createTable(self,cols,rows):
         table=self.ui.tableWidget
@@ -70,6 +88,11 @@ class Formmanager():
 
 
         pass'''
+
+    def changeTableSize(self):
+        new_rows=len(self.manager.players)
+        self.ui.tableWidget.setRowCount(new_rows)
+        pass
 
     def getScoresFromTable(self):
         t = self.ui.tableWidget
@@ -113,7 +136,7 @@ class Formmanager():
         self.ui.pushButton.clicked.connect(self.goToOtvety)
         self.ui.pushButton_2.clicked.connect(self.getScoresFromTable)
         self.ui.pushButton_3.clicked.connect(self.calculate)
-
+        self.ui.tableWidget.doubleClicked.connect(self.removeFromTableAndList)
     pass
 
 
