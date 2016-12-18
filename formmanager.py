@@ -21,6 +21,7 @@ class Formmanager():
         self.manager = Manager()
 
         self.manager.loadPlayers('tablica.csv')
+        self.round=1
         pass
 
     def calculate(self):
@@ -45,6 +46,7 @@ class Formmanager():
 
         self.changeTableSize()
         print u"Игроков "+str(len(self.manager.players))
+
 
     def goToOtvety(self):
         self.ui.stackedWidget.setCurrentIndex(1)
@@ -99,6 +101,7 @@ class Formmanager():
     def changeTableSize(self):
         new_rows=len(self.manager.players)
         self.ui.tableWidget.setRowCount(new_rows)
+
         pass
 
     def getScoresFromTable(self):
@@ -134,9 +137,26 @@ class Formmanager():
             self.ui.tableWidget.setItem(index,1,newItem2)
             self.ui.tableWidget.setItem(index,2,newItem3)
 
+
             index+=1
         #self.addColAndCopyScores()
         #self.reDrawTable()
+
+        head1=QtGui.QTableWidgetItem()
+        head2=QtGui.QTableWidgetItem()
+        head3=QtGui.QTableWidgetItem()
+
+        head1.setText(QtCore.QString(unicode(u"Фамилия")))
+        head2.setText(QtCore.QString(unicode(u"Очки")))
+        head3.setText(QtCore.QString(unicode(u"Статус")))
+
+        self.ui.tableWidget.setHorizontalHeaderItem(0,head1)
+        self.ui.tableWidget.setHorizontalHeaderItem(1,head2)
+        self.ui.tableWidget.setHorizontalHeaderItem(2,head3)
+
+        self.ui.label_3.setText(QtCore.QString(unicode(u"Раунд " + str(self.round))))
+        self.round += 1
+
         pass
 
     def setSignals(self):
